@@ -16,11 +16,6 @@ This repository documents the end-to-end architecture and detection capabilities
 
 [<img src="images/workflow_diagram.png" alt="Splunk Home Lab Simple Workflow Diagram" width="100%"/>](images/workflow_diagram.png)
 
-### 📊 Live Splunk Ingestion Proof
-Below is a live search snapshot from the Splunk Enterprise Web interface (`index=*`) verifying **9,435+ events** successfully ingested across all configured indices:
-
-[<img src="images/splunk_search_events.png" alt="Splunk Ingested Search Events Screenshot" width="100%"/>](images/splunk_search_events.png)
-
 ---
 
 ## 🎯 Objectives & Project Scope

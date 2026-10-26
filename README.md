@@ -20,22 +20,12 @@ The Wazuh lab leverages an all-in-one **Ubuntu Server 24.04 LTS VM** acting as t
 
 [<img src="images/wazuh_workflow_diagram.png" alt="Wazuh SOC Home Lab Workflow Diagram" width="100%"/>](images/wazuh_workflow_diagram.png)
 
-#### 📊 Live Wazuh Threat Hunting Proof
-Below is historical Threat Hunting evidence from the Wazuh Dashboard displaying active telemetry ingestion from Windows 10:
-
-[<img src="images/wazuh_threat_hunting_win10.png" alt="Wazuh Threat Hunting Proof" width="100%"/>](images/wazuh_threat_hunting_win10.png)
-
 ---
 
 ### 2. Splunk SOC Home Lab Workflow
 The Splunk lab establishes a centralized **Splunk Enterprise 10.4.2** server combining Indexer and Search Head capabilities on a **Windows 11 Host**, collecting cross-platform forwarder streams over **TCP port 9997**.
 
 [<img src="images/splunk_workflow_diagram.png" alt="Splunk SOC Home Lab Workflow Diagram" width="100%"/>](images/splunk_workflow_diagram.png)
-
-#### 📊 Live Splunk Ingestion Proof
-Below is a live search snapshot (`index=*`) verifying **9,435+ events** successfully ingested across all configured indices (`windows11`, `windows10`, `sh-kali`):
-
-[<img src="images/splunk_search_events.png" alt="Splunk Search Ingestion Events Proof" width="100%"/>](images/splunk_search_events.png)
 
 ---
 
@@ -48,8 +38,6 @@ SOC_Labs/
 ├── images/                             # High-resolution diagrams & proof screenshots
 │   ├── wazuh_workflow_diagram.png
 │   ├── splunk_workflow_diagram.png
-│   ├── wazuh_threat_hunting_win10.png
-│   └── splunk_search_events.png
 │
 ├── Wazuh_SOC_Lab/                      # Complete Wazuh SIEM/XDR Laboratory
 │   ├── README.md                       # Comprehensive Wazuh Lab Guide

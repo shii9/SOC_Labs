@@ -16,26 +16,6 @@
 This repository documents the end-to-end architecture and detection capabilities of a centralized open-source SIEM environment. The Wazuh Server running on an **Ubuntu Server 24.04 LTS VM** acts as a central receiving, decoding, indexing, search, and alerting engine. Security telemetry is forwarded near real-time over **TCP port 1514** from a **Windows 10 VM (with Sysmon)** and a **Kali Linux VM (with journald & auditd)**, alongside a monitored **Windows 11 Host**.
 
 [<img src="images/workflow_diagram.png" alt="Wazuh SOC Home Lab Simple Workflow Diagram" width="100%"/>](images/workflow_diagram.png)
-
-### 📊 Live Wazuh Ingestion & Threat Hunting Proof
-
-Below is a live search snapshot from the Wazuh Dashboard interface (`Threat Hunting → Events`) verifying active agent telemetry and historical alert ingestion across the configured lab endpoints:
-
-[<img src="images/screenshots/wazuh-threat-hunting-win10.png" alt="Wazuh Threat Hunting Search Events Screenshot" width="100%"/>](images/screenshots/wazuh-threat-hunting-win10.png)
-
-#### Verified In-Lab Telemetry Observations
-
-| Monitored Evidence | Origin Node | What It Demonstrates |
-| :--- | :--- | :--- |
-| `Microsoft-Windows-Sysmon` Event ID **13** (`notepad.exe`) | Windows 10 VM | Sysmon registry event channel collected, transmitted, and decoded |
-| `KaliSOCTest` Synthetic Message | Kali Linux VM | Linux `systemd-journald` log entry reached Wazuh Manager over TCP 1514 |
-| `rule.id: 5402` (Successful sudo to root) | Kali Linux VM | Built-in privilege escalation rule fired with MITRE ATT&CK **T1548.003** mapping |
-| `WIN11-SOC-HOST` Agent Enrolled & Active | Windows 11 Host | Central authentication, TLS certificate exchange, and heartbeat confirmed |
-
-Below is the local validation on the Windows 10 endpoint confirming that the Sysmon operational log channel is active and recording:
-
-[<img src="images/screenshots/windows10-sysmon-local-verification.png" alt="Windows 10 Sysmon Local Verification" width="100%"/>](images/screenshots/windows10-sysmon-local-verification.png)
-
 ---
 
 ## 🎯 Objectives & Project Scope
