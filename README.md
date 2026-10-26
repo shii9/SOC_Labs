@@ -29,47 +29,26 @@ The Splunk lab establishes a centralized **Splunk Enterprise 10.4.2** server com
 
 ---
 
-## 📁 Repository Structure & Lab Navigation
+## 📁 Repository Structure & Lab Directory
 
 ```text
 SOC_Labs/
-├── README.md                           # Master Portfolio Overview & Comparison
-├── LICENSE                             # MIT License
-├── images/                             # High-resolution diagrams & proof screenshots
-│   ├── wazuh_workflow_diagram.png
-│   ├── splunk_workflow_diagram.png
-│
-├── Wazuh_SOC_Lab/                      # Complete Wazuh SIEM/XDR Laboratory
-│   ├── README.md                       # Comprehensive Wazuh Lab Guide
-│   ├── Wazuh_SOC_Home_Lab_Project_Report.md
-│   ├── configs/                        # Kali, Manager, Rules, Windows configs
-│   ├── docs/                           # 01-architecture to 09-roadmap
-│   ├── images/                         # SVGs, diagrams, and UI screenshots
-│   ├── scripts/                        # Health check, agent install, verification
-│   ├── site/                           # Standalone visual architecture microsite
-│   └── tests/                          # Automated repository verification tests
-│
-├── Splunk_SOC_Lab/                     # Complete Splunk Enterprise SIEM Laboratory
-│   ├── README.md                       # Comprehensive Splunk Lab Guide
-│   ├── Splunk_SOC_Home_Lab_Project_Report.md
-│   ├── configs/                        # Kali audit.rules, inputs.conf, Windows inputs
-│   ├── images/                         # Architecture diagrams and SPL search proof
-│   └── Lab 1/                          # Baseline SSH log analysis dataset
-│
-└── Splunk_Practice_Labs/               # Hands-On Threat Hunting Practice Labs
-    ├── README.md                       # Practice Labs Overview & Roadmap
-    ├── Lab 1/                          # SSH Authentication & Brute Force Analysis
-    ├── Lab 2/                          # DNS Traffic & Network C2 Intelligence
-    ├── Lab 3/                          # HTTP Traffic & Web Application Attacks
-    ├── Lab 4/                          # Threat Intelligence Dashboard Development
-    └── Lab 5/                          # Advanced Multi-Source Correlation
+├── Wazuh_SOC_Lab/                      # Wazuh SIEM & XDR Monitoring Lab
+├── Splunk_SOC_Lab/                     # Splunk Enterprise Centralized SIEM Lab
+├── Splunk_Practice_Labs/               # Hands-On Threat Hunting & SPL Practice Labs
+├── Elastic_SOC_Lab/                    # (Upcoming) Elastic SIEM & Fleet Detection Lab
+├── Suricata_Zeek_NIDS_Lab/             # (Upcoming) Network Threat Analysis & NIDS Lab
+└── Active_Directory_SOC_Lab/           # (Upcoming) Windows AD & Kerberos Attack Lab
 ```
 
-| Lab Environment | Primary Technology | Scope & Focus | Directory Link |
+| Lab Environment | Primary Technology | Scope & Status | Directory Link |
 | :--- | :--- | :--- | :--- |
-| **Wazuh SOC Home Lab** | Wazuh 4.14.9 · Ubuntu 24.04 LTS · OpenSearch | Full SIEM/XDR deployment, Sysmon, journald, DQL detection, XML decoders/rules, FIM | [📂 Wazuh_SOC_Lab](Wazuh_SOC_Lab/) |
-| **Splunk SOC Home Lab** | Splunk Enterprise 10.4.2 · Windows 11 · Universal Forwarders | Centralized log collection, index segregation, SPL detection engineering, audit tuning | [📂 Splunk_SOC_Lab](Splunk_SOC_Lab/) |
-| **Splunk Practice Labs** | Splunk Enterprise · Real-World Datasets | Hands-on SOC scenarios: SSH attacks, DNS exfiltration, Web SQLi/XSS, and dashboarding | [📂 Splunk_Practice_Labs](Splunk_Practice_Labs/) |
+| **Wazuh SOC Home Lab** | Wazuh 4.14.9 · Ubuntu 24.04 LTS · OpenSearch | Full SIEM/XDR deployment, Sysmon, journald, DQL detection, XML rules, FIM | [📂 Wazuh_SOC_Lab](Wazuh_SOC_Lab/) |
+| **Splunk SOC Home Lab** | Splunk Enterprise 10.4.2 · Windows 11 · Universal Forwarders | Centralized log ingestion, index segregation, SPL detection engineering | [📂 Splunk_SOC_Lab](Splunk_SOC_Lab/) |
+| **Splunk Practice Labs** | Splunk Enterprise · Real Datasets | Hands-on SOC scenarios (SSH, DNS, Web HTTP attacks, Dashboards) | [📂 Splunk_Practice_Labs](Splunk_Practice_Labs/) |
+| **Elastic SIEM Lab** | Elastic Stack · Fleet · Elastic Agent | Ingestion pipelines, EQL detections, cloud-native monitoring | *Upcoming* |
+| **Network IDS Lab** | Suricata · Zeek · EveBox | Network threat analysis, flow logs, PCAP analysis | *Upcoming* |
+| **Active Directory Lab** | Windows Server 2022 · Domain Controller | Kerberos attacks (Kerberoasting, AS-REP Roasting), GPO auditing | *Upcoming* |
 
 ---
 
