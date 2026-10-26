@@ -9,7 +9,7 @@
 [![Windows 10](https://img.shields.io/badge/VM-Windows_10-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-> A comprehensive, production-grade Security Operations Center (SOC) laboratory collection featuring full deployments of both **Wazuh 4.14.9** (Open-Source SIEM/XDR) and **Splunk Enterprise 10.4.2** (Industry-Standard SIEM). This repository consolidates cross-platform telemetry ingestion (Windows 10, Kali Linux, Windows 11), Sysmon integration, Linux audit tuning, MITRE ATT&CK detection engineering, and hands-on threat hunting practice labs into a single, unified reference portfolio.
+> A comprehensive, production-grade Security Operations Center (SOC) laboratory collection featuring full deployments of both **Wazuh 4.14.9** (Open-Source SIEM/XDR) and **Splunk Enterprise 10.4.2** (Industry-Standard SIEM). This repository consolidates cross-platform telemetry ingestion (Windows 10, Kali Linux, Windows 11), Sysmon integration, Linux audit tuning, MITRE ATT&CK detection engineering into a single, unified reference portfolio.
 
 ---
 
@@ -35,20 +35,16 @@ The Splunk lab establishes a centralized **Splunk Enterprise 10.4.2** server com
 SOC_Labs/
 ├── Wazuh_SOC_Lab/                      # Wazuh SIEM & XDR Monitoring Lab
 ├── Splunk_SOC_Lab/                     # Splunk Enterprise Centralized SIEM Lab
-├── Splunk_Practice_Labs/               # Hands-On Threat Hunting & SPL Practice Labs
-├── Elastic_SOC_Lab/                    # (Upcoming) Elastic SIEM & Fleet Detection Lab
-├── Suricata_Zeek_NIDS_Lab/             # (Upcoming) Network Threat Analysis & NIDS Lab
-└── Active_Directory_SOC_Lab/           # (Upcoming) Windows AD & Kerberos Attack Lab
+├── Lab 3/                              # Upcoming
+└── Lab 4/                              # Upcoming
 ```
 
 | Lab Environment | Primary Technology | Scope & Status | Directory Link |
 | :--- | :--- | :--- | :--- |
 | **Wazuh SOC Home Lab** | Wazuh 4.14.9 · Ubuntu 24.04 LTS · OpenSearch | Full SIEM/XDR deployment, Sysmon, journald, DQL detection, XML rules, FIM | [📂 Wazuh_SOC_Lab](Wazuh_SOC_Lab/) |
 | **Splunk SOC Home Lab** | Splunk Enterprise 10.4.2 · Windows 11 · Universal Forwarders | Centralized log ingestion, index segregation, SPL detection engineering | [📂 Splunk_SOC_Lab](Splunk_SOC_Lab/) |
-| **Splunk Practice Labs** | Splunk Enterprise · Real Datasets | Hands-on SOC scenarios (SSH, DNS, Web HTTP attacks, Dashboards) | [📂 Splunk_Practice_Labs](Splunk_Practice_Labs/) |
-| **Elastic SIEM Lab** | Elastic Stack · Fleet · Elastic Agent | Ingestion pipelines, EQL detections, cloud-native monitoring | *Upcoming* |
-| **Network IDS Lab** | Suricata · Zeek · EveBox | Network threat analysis, flow logs, PCAP analysis | *Upcoming* |
-| **Active Directory Lab** | Windows Server 2022 · Domain Controller | Kerberos attacks (Kerberoasting, AS-REP Roasting), GPO auditing | *Upcoming* |
+| **Lab 3** | Upcoming SOC Lab | *Coming Soon* | [📂 Lab 3](Lab%203/) |
+| **Lab 4** | Upcoming SOC Lab | *Coming Soon* | [📂 Lab 4](Lab%204/) |
 
 ---
 
