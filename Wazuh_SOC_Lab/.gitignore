@@ -1,0 +1,33 @@
+# Security and operational secrets
+.env
+.env.*
+!.env.example
+*password*
+*secret*
+*credential*
+*agent.keys*
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+# Security evidence / large telemetry
+*.log
+*.evtx
+*.pcap
+*.pcapng
+*.dmp
+*.core
+archives.json
+alerts.json
+wazuh-install-files.tar
+*.bak
+*.broken
+*.tmp
+# Developer machine
+__pycache__/
+.pytest_cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,3 @@
+<!-- ADD this setting INSIDE the EXISTING <global> block on Ubuntu Manager.
+     This is an illustrative snippet, not a complete ossec.conf. -->
+<logall_json>yes</logall_json>

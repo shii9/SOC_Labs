@@ -1,0 +1,7 @@
+# OPTIONAL targeted auditd example, NOT enabled in verified Kali deployment.
+# Install auditd only if desired. Check path existence first. No -D reset.
+# Place in /etc/audit/rules.d/wazuh-soc-lab.rules then validate carefully.
+-w /etc/passwd -p wa -k wazuh_accounts
+-w /etc/group -p wa -k wazuh_accounts
+-w /etc/sudoers -p wa -k wazuh_sudoers
+-w /etc/crontab -p wa -k wazuh_persistence

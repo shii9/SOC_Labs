@@ -1,0 +1,8 @@
+# Existing /etc/filebeat/filebeat.yml: EDIT module settings in-place.
+# DO NOT replace the entire live Filebeat configuration with this snippet.
+filebeat.modules:
+  - module: wazuh
+    alerts:
+      enabled: true
+    archives:
+      enabled: true

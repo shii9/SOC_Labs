@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" role="img" aria-label="Wazuh data pipeline separates alerts and raw archives">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2DD4BF"/></marker><marker id="muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#93B4CA"/></marker><filter id="shade"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#06152E" flood-opacity="0.22"/></filter></defs>
+<rect width="1600" height="800" fill="#08162D"/>
+<text x="68" y="71" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="38" font-weight="750" fill="#FFFFFF" text-anchor="start">TELEMETRY  →  DETECTION  →  SEARCH</text>
+<text x="69" y="111" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#9BB7D0" text-anchor="start">Wazuh Manager is the detection engine; Filebeat forwards JSON; Indexer stores and searches.</text>
+<rect x="54" y="201" width="300" height="150" rx="16" fill="#173452" stroke="#2DD4BF" stroke-width="2"/>
+<text x="77" y="251" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="750" fill="#FFFFFF" text-anchor="start">ENDPOINT AGENTS</text>
+<text x="77" y="285" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="400" fill="#C0D8E9" text-anchor="start">Windows + Linux</text>
+<text x="77" y="319" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#82B7C7" text-anchor="start">192.168.x.x</text>
+<rect x="422" y="201" width="315" height="150" rx="16" fill="#173452" stroke="#2DD4BF" stroke-width="2"/>
+<text x="445" y="251" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="750" fill="#FFFFFF" text-anchor="start">WAZUH MANAGER</text>
+<text x="445" y="285" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="400" fill="#C0D8E9" text-anchor="start">Decoders + rule engine</text>
+<text x="445" y="319" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#82B7C7" text-anchor="start">Ubuntu Server VM</text>
+<rect x="808" y="201" width="308" height="150" rx="16" fill="#173452" stroke="#65ABCF" stroke-width="2"/>
+<text x="831" y="251" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="750" fill="#FFFFFF" text-anchor="start">FILEBEAT</text>
+<text x="831" y="285" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="400" fill="#C0D8E9" text-anchor="start">JSON forwarding</text>
+<text x="831" y="319" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#82B7C7" text-anchor="start">Ubuntu Server VM</text>
+<rect x="1180" y="201" width="360" height="150" rx="16" fill="#173452" stroke="#65ABCF" stroke-width="2"/>
+<text x="1203" y="251" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="750" fill="#FFFFFF" text-anchor="start">WAZUH INDEXER</text>
+<text x="1203" y="285" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="400" fill="#C0D8E9" text-anchor="start">Index and search</text>
+<text x="1203" y="319" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#82B7C7" text-anchor="start">Ubuntu Server VM</text>
+<path d="M 358 276 H 417" stroke="#2DD4BF" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<path d="M 742 276 H 803" stroke="#2DD4BF" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<path d="M 1120 276 H 1176" stroke="#2DD4BF" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<path d="M 581 356 V 435 H 379 V 464" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<path d="M 581 356 V 435 H 900 V 464" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<rect x="79" y="468" width="570" height="194" rx="16" fill="#122A43" stroke="#2D826F" stroke-width="2"/>
+<rect x="109" y="488" width="139" height="30" rx="15" fill="#073B42" stroke="none" stroke-width="1"/>
+<text x="178.5" y="509" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">ALERT PATH</text>
+<text x="110" y="550" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="750" fill="#FFFFFF" text-anchor="start">alerts.json</text>
+<text x="110" y="586" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#BDD5E3" text-anchor="start">Only events generating Wazuh alerts</text>
+<text x="110" y="621" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#7DDDBE" text-anchor="start">Dashboard: Threat Hunting / wazuh-alerts-*</text>
+<rect x="706" y="468" width="610" height="194" rx="16" fill="#122A43" stroke="#47689A" stroke-width="2"/>
+<rect x="737" y="488" width="207" height="30" rx="15" fill="#26395E" stroke="none" stroke-width="1"/>
+<text x="840.5" y="509" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">OPTIONAL RAW PATH</text>
+<text x="737" y="550" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="750" fill="#FFFFFF" text-anchor="start">archives.json</text>
+<text x="737" y="586" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#BDD5E3" text-anchor="start">All collected raw events when logall_json=yes</text>
+<text x="737" y="621" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#A0C8FF" text-anchor="start">Discover / wazuh-archives-* when Filebeat enabled</text>
+<rect x="93" y="700" width="1397" height="57" rx="12" fill="#0D2944" stroke="#284A69" stroke-width="1"/>
+<text x="122" y="736" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="580" fill="#E0F2FE" text-anchor="start">Wazuh detection rules execute on the Manager, not on the Indexer. Raw logs may not trigger alerts.</text>
+</svg>

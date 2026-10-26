@@ -1,0 +1,19 @@
+<!-- OPTIONAL lab-only examples. NOT deployed or validated in live Wazuh.
+     Merge with local rules; avoid duplicating <group> wrappers. Validate
+     with /var/ossec/bin/wazuh-logtest BEFORE restarting Manager. -->
+<group name="local_soc_lab,">
+  <rule id="100101" level="3">
+    <program_name>^KaliSOCTest$</program_name>
+    <match>Wazuh Kali centralized monitoring test</match>
+    <description>LAB ONLY: Kali synthetic journald marker received</description>
+    <group>lab_validation,</group>
+  </rule>
+
+  <rule id="100102" level="3">
+    <decoded_as>windows_eventchannel</decoded_as>
+    <field name="win.system.providerName">^WazuhHostTest$</field>
+    <field name="win.system.eventID">^102$</field>
+    <description>LAB ONLY: Windows 11 synthetic Application event received</description>
+    <group>lab_validation,</group>
+  </rule>
+</group>

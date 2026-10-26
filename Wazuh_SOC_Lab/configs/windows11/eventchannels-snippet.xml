@@ -1,0 +1,10 @@
+<!-- Optional channels to add inside existing <ossec_config>.
+     Security, System and Application are in standard Wazuh Windows config. -->
+<localfile>
+  <location>Microsoft-Windows-PowerShell/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>
+<localfile>
+  <location>Microsoft-Windows-Windows Defender/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>

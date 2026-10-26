@@ -1,0 +1,6 @@
+<!-- This <localfile> collector was ALREADY PRESENT in the verified Kali agent.
+     Add ONLY if missing. Place inside existing <ossec_config>. -->
+<localfile>
+  <log_format>journald</log_format>
+  <location>journald</location>
+</localfile>

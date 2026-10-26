@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="630" viewBox="0 0 1520 630" role="img" aria-label="Security operations workflow from alert to lessons learned">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2DD4BF"/></marker><marker id="muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#93B4CA"/></marker><filter id="shade"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#06152E" flood-opacity="0.22"/></filter></defs>
+<rect width="1520" height="630" fill="#08162D"/>
+<text x="67" y="68" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="38" font-weight="750" fill="#FFFFFF" text-anchor="start">SOC ANALYST WORKFLOW</text>
+<text x="68" y="104" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#9CB7D0" text-anchor="start">Designed for repeatable, evidence-led and analyst-approved incident handling</text>
+<rect x="49" y="211" width="221" height="249" rx="15" fill="#152E4C" stroke="#3D647F" stroke-width="2"/>
+<rect x="69" y="236" width="60" height="30" rx="15" fill="#064E48" stroke="none" stroke-width="1"/>
+<text x="99.0" y="257" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">01</text>
+<text x="67" y="314" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#FFFFFF" text-anchor="start">ALERT INTAKE</text>
+<text x="67" y="348" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#B4D3E3" text-anchor="start">Rule + agent + time</text>
+<path d="M 271 335 H 292" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<rect x="296" y="211" width="221" height="249" rx="15" fill="#152E4C" stroke="#3D647F" stroke-width="2"/>
+<rect x="316" y="236" width="60" height="30" rx="15" fill="#064E48" stroke="none" stroke-width="1"/>
+<text x="346.0" y="257" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">02</text>
+<text x="314" y="314" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#FFFFFF" text-anchor="start">TRIAGE</text>
+<text x="314" y="348" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#B4D3E3" text-anchor="start">True/false positive</text>
+<path d="M 518 335 H 539" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<rect x="543" y="211" width="221" height="249" rx="15" fill="#152E4C" stroke="#3D647F" stroke-width="2"/>
+<rect x="563" y="236" width="60" height="30" rx="15" fill="#064E48" stroke="none" stroke-width="1"/>
+<text x="593.0" y="257" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">03</text>
+<text x="561" y="314" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#FFFFFF" text-anchor="start">INVESTIGATION</text>
+<text x="561" y="348" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#B4D3E3" text-anchor="start">Related evidence</text>
+<path d="M 765 335 H 786" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<rect x="790" y="211" width="221" height="249" rx="15" fill="#152E4C" stroke="#3D647F" stroke-width="2"/>
+<rect x="810" y="236" width="60" height="30" rx="15" fill="#064E48" stroke="none" stroke-width="1"/>
+<text x="840.0" y="257" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">04</text>
+<text x="808" y="314" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#FFFFFF" text-anchor="start">SCOPE</text>
+<text x="808" y="348" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#B4D3E3" text-anchor="start">Hosts + impact</text>
+<path d="M 1012 335 H 1033" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<rect x="1037" y="211" width="221" height="249" rx="15" fill="#152E4C" stroke="#3D647F" stroke-width="2"/>
+<rect x="1057" y="236" width="60" height="30" rx="15" fill="#064E48" stroke="none" stroke-width="1"/>
+<text x="1087.0" y="257" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">05</text>
+<text x="1055" y="314" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#FFFFFF" text-anchor="start">RESPONSE</text>
+<text x="1055" y="348" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#B4D3E3" text-anchor="start">Approved action</text>
+<path d="M 1259 335 H 1280" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arr)"/>
+<rect x="1284" y="211" width="221" height="249" rx="15" fill="#152E4C" stroke="#3D647F" stroke-width="2"/>
+<rect x="1304" y="236" width="60" height="30" rx="15" fill="#064E48" stroke="none" stroke-width="1"/>
+<text x="1334.0" y="257" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#A7F3D0" text-anchor="middle">06</text>
+<text x="1302" y="314" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#FFFFFF" text-anchor="start">LESSONS</text>
+<text x="1302" y="348" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#B4D3E3" text-anchor="start">Tune + document</text>
+<rect x="67" y="512" width="1387" height="64" rx="12" fill="#143C42" stroke="#2B9480" stroke-width="1"/>
+<text x="97" y="552" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="580" fill="#B7FFF1" text-anchor="start">Guardrail: No automatic containment on the physical Windows 11 host. Preserve evidence and obtain authorization.</text>
+</svg>

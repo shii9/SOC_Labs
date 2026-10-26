@@ -1,0 +1,21 @@
+<!-- CLIENT FRAGMENT ONLY. Replace only the existing <client> block in the
+     full backed-up C:\Program Files (x86)\ossec-agent\ossec.conf.
+     Replace 192.168.x.x with your ACTUAL manager address locally. -->
+<client>
+  <server>
+    <address>192.168.x.x</address>
+    <port>1514</port>
+    <protocol>tcp</protocol>
+  </server>
+  <config-profile>windows, windows11</config-profile>
+  <crypto_method>aes</crypto_method>
+  <notify_time>20</notify_time>
+  <time-reconnect>60</time-reconnect>
+  <auto_restart>yes</auto_restart>
+  <enrollment>
+    <enabled>yes</enabled>
+    <manager_address>192.168.x.x</manager_address>
+    <port>1515</port>
+    <agent_name>WIN11-SOC-HOST</agent_name>
+  </enrollment>
+</client>
