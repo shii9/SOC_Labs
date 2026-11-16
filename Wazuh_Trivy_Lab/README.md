@@ -23,10 +23,10 @@ A practical SOC vulnerability monitoring lab integrating **Trivy Vulnerability S
   - [2.3 Component Responsibility Matrix](#23-component-responsibility-matrix)
 - [3. Monitored Endpoint Fleet](#3-monitored-endpoint-fleet)
 - [4. Custom Detection Rules](#4-custom-detection-rules)
-- [5. Directory Structure](#5-directory-structure)
-- [6. Quick Start](#6-quick-start)
-- [7. Observed Detection Evidence & Verification](#7-observed-detection-evidence--verification)
-- [8. Official References](#8-official-references)
+- [5. Observed Detection Evidence & Verification](#5-observed-detection-evidence--verification)
+  - [5.1 Kali Linux VM — Container Image Vulnerability Alerts](#51-kali-linux-vm--container-image-vulnerability-alerts)
+  - [5.2 Windows 10 VM — Application Dependency Alerts](#52-windows-10-vm--application-dependency-alerts)
+- [6. Official References](#6-official-references)
 
 ---
 
@@ -119,88 +119,9 @@ The following rules are deployed to `/var/ossec/etc/rules/trivy_rules.xml` on th
 
 ---
 
-## 5. Directory Structure
+## 5. Observed Detection Evidence & Verification
 
-```text
-Wazuh_Trivy_Lab/
-├── README.md                              # Lab overview, architecture, and live verification
-├── Trivy with Wazuh.pdf                   # 📄 Complete authentic lab report (PDF)
-├── assets/
-│   ├── trivy-wazuh-architecture.png       # Architecture and data-flow diagram
-│   ├── kali-threat-hunting-trivy-alerts.png     # Kali dashboard event stream (1)
-│   ├── kali-alert-detail-cve-2026-24049.png     # Kali alert detail (2)
-│   ├── windows-threat-hunting-django-alerts.png # Windows dashboard event stream (3)
-│   └── windows-alert-detail-cve-2022-28347.png  # Windows alert detail (4)
-├── configs/
-│   ├── trivy_rules.xml                    # Wazuh custom detection rules (110400–110402)
-│   ├── ossec-localfile-kali.xml           # Kali Agent localfile snippet
-│   └── ossec-localfile-windows.xml        # Windows Agent localfile snippet
-└── scripts/
-    ├── normalize-kali.sh                  # jq normalization script (Kali Linux)
-    └── normalize-windows.ps1              # PowerShell normalization script (Windows 10)
-```
-
----
-
-## 6. Quick Start
-
-### Step 1 — Install Trivy on Endpoints
-
-**Kali Linux:**
-```bash
-sudo apt update && sudo apt install -y trivy jq
-```
-
-**Windows 10 (PowerShell):**
-```powershell
-# Download from https://github.com/aquasecurity/trivy/releases
-cd "C:\Users\<user>\Downloads\trivy_0.76.1_windows-64bit"
-.\trivy.exe --version
-```
-
-### Step 2 — Run Vulnerability Scans
-
-**Kali (container image):**
-```bash
-trivy image --image-src remote \
-  --scanners vuln --severity HIGH,CRITICAL \
-  --format json \
-  --output ~/trivy-wazuh/reports/kali-scan-bil.json \
-  python:3.9-slim-bullseye
-```
-
-**Windows (filesystem dependencies):**
-```powershell
-.\trivy.exe fs `
-  --scanners vuln --severity HIGH,CRITICAL `
-  --format json `
-  --output "C:\TrivyLab\reports\windows-scan.json" `
-  "C:\TrivyLab\test-app"
-```
-
-### Step 3 — Normalize to JSONL
-
-```bash
-# Kali
-bash scripts/normalize-kali.sh
-```
-```powershell
-# Windows
-powershell -File scripts\normalize-windows.ps1
-```
-
-### Step 4 — Verify Alerts in Wazuh Dashboard
-
-Navigate to **Threat Hunting → Events** and filter:
-```
-rule.id: 110401 OR rule.id: 110402
-```
-
----
-
-## 7. Observed Detection Evidence & Verification
-
-### 7.1 Kali Linux VM — Container Image Vulnerability Alerts
+### 5.1 Kali Linux VM — Container Image Vulnerability Alerts
 
 Trivy scanned the container image `python:3.9-slim-bullseye` identifying 108 vulnerabilities. The normalized JSONL findings were ingested by the Kali Wazuh Agent and forwarded to the Wazuh Manager, triggering Rules 110401 (HIGH) and 110402 (CRITICAL).
 
@@ -218,7 +139,7 @@ Trivy scanned the container image `python:3.9-slim-bullseye` identifying 108 vul
 
 ---
 
-### 7.2 Windows 10 VM — Application Dependency Alerts
+### 5.2 Windows 10 VM — Application Dependency Alerts
 
 Trivy performed a filesystem scan against `C:\TrivyLab\test-app` targeting `requirements.txt` containing outdated `Django==2.2.0`. The Windows Wazuh Agent forwarded the generated JSONL findings to generate CRITICAL security alerts.
 
@@ -236,7 +157,7 @@ Trivy performed a filesystem scan against `C:\TrivyLab\test-app` targeting `requ
 
 ---
 
-## 8. Official References
+## 6. Official References
 
 - [Trivy Documentation — Quick Start](https://aquasecurity.github.io/trivy/latest/getting-started/quickstart/)
 - [Trivy Documentation — Container Image Scanning](https://aquasecurity.github.io/trivy/latest/docs/target/container_image/)
