@@ -10,8 +10,8 @@
 
 A practical SOC vulnerability monitoring lab integrating **Trivy Vulnerability Scanner** with the **Wazuh SIEM Platform**. The system performs automated vulnerability assessments of container images and application dependencies across Linux and Windows endpoints, normalizes findings into structured JSONL events, and forwards them through existing Wazuh Agents to the centralized Ubuntu Wazuh Manager for severity-based detection, alerting, and threat hunting.
 
-> **📄 View Full PDF Report:** [Trivy_Wazuh_Integration_Report.pdf](Trivy_Wazuh_Integration_Report.pdf) *(Printable, publication-ready report)*  
-> **📝 Markdown Step-by-Step Report:** [Trivy_Wazuh_Integration_Report.md](Trivy_Wazuh_Integration_Report.md)
+> **📄 View Full Lab Report (PDF):** [Trivy with Wazuh.pdf](Trivy%20with%20Wazuh.pdf) *(Native report converted directly from original docx)*  
+> **📝 Markdown Implementation Guide:** [Trivy_Wazuh_Integration_Report.md](Trivy_Wazuh_Integration_Report.md)
 
 ---
 
@@ -125,7 +125,7 @@ The following rules are deployed to `/var/ossec/etc/rules/trivy_rules.xml` on th
 ```text
 Wazuh_Trivy_Lab/
 ├── README.md                              # Lab overview, architecture, and live verification
-├── Trivy_Wazuh_Integration_Report.pdf      # Complete publication-ready PDF report
+├── Trivy with Wazuh.pdf                   # 📄 Complete authentic lab report (PDF)
 ├── Trivy_Wazuh_Integration_Report.md      # Detailed step-by-step implementation guide
 ├── assets/
 │   ├── trivy-wazuh-architecture.png       # Architecture and data-flow diagram
