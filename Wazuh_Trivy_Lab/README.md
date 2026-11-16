@@ -25,7 +25,7 @@ A practical SOC vulnerability monitoring lab integrating **Trivy Vulnerability S
 - [4. Custom Detection Rules](#4-custom-detection-rules)
 - [5. Directory Structure](#5-directory-structure)
 - [6. Quick Start](#6-quick-start)
-- [7. Detection Scenarios](#7-detection-scenarios)
+- [7. Observed Detection Evidence & Verification](#7-observed-detection-evidence--verification)
 - [8. Official References](#8-official-references)
 
 ---
@@ -233,22 +233,6 @@ Trivy performed a filesystem scan against `C:\TrivyLab\test-app` targeting `requ
   <img src="assets/windows-alert-detail-cve-2022-28347.png" alt="Expanded Windows alert: CVE-2022-28347, Django 2.2.0" width="750">
 </p>
 <p align="center"><em>Figure 5. Document details for CVE-2022-28347 affecting Django 2.2.0 in requirements.txt (fixed in 2.2.28, 3.2.13, 4.0.4). Ingested from C:\TrivyLab\logs\findings.jsonl via JSON decoder.</em></p>
-
----
-
-### 7.3 Threat Hunting Queries
-
-```text
-# Filter all Trivy vulnerability findings across all agents
-rule.groups: "trivy"
-
-# Filter only HIGH and CRITICAL alerts
-rule.id: 110401 OR rule.id: 110402
-
-# Filter findings by specific agent
-agent.name: "KALI-SOC-LAB" AND rule.groups: "trivy"
-agent.name: "WIN10-SOC-LAB" AND rule.groups: "trivy"
-```
 
 ---
 
