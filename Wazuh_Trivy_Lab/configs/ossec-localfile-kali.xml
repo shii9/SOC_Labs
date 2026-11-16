@@ -1,0 +1,8 @@
+<!--
+  Kali Linux — Wazuh Agent ossec.conf snippet
+  Add inside the existing <ossec_config> section of /var/ossec/etc/ossec.conf
+-->
+<localfile>
+  <log_format>json</log_format>
+  <location>/var/log/trivy/findings.jsonl</location>
+</localfile>

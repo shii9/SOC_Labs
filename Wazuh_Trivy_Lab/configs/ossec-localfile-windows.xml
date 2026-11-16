@@ -1,0 +1,9 @@
+<!--
+  Windows 10 — Wazuh Agent ossec.conf snippet
+  Add inside the existing <ossec_config> section of
+  C:\Program Files (x86)\ossec-agent\ossec.conf
+-->
+<localfile>
+  <log_format>json</log_format>
+  <location>C:\TrivyLab\logs\findings.jsonl</location>
+</localfile>

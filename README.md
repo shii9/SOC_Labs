@@ -4,13 +4,14 @@
 [![Wazuh SIEM](https://img.shields.io/badge/Wazuh_SIEM-4.14.9-00A9E0?style=for-the-badge&logo=wazuh&logoColor=white)](https://wazuh.com/)
 [![Splunk Enterprise](https://img.shields.io/badge/Splunk_Enterprise-10.4.2-FF0000?style=for-the-badge&logo=splunk&logoColor=white)](https://www.splunk.com/)
 [![Suricata NIDS](https://img.shields.io/badge/Suricata_NIDS-8.0.8-EF3B2C?style=for-the-badge&logo=suricata&logoColor=white)](https://suricata.io/)
+[![Trivy Scanner](https://img.shields.io/badge/Trivy-0.76.x-1904DA?style=for-the-badge&logo=aqua&logoColor=white)](https://aquasecurity.github.io/trivy/)
 [![Host OS](https://img.shields.io/badge/Host-Windows_11-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![Ubuntu Server](https://img.shields.io/badge/Server-Ubuntu_24.04_LTS-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 [![Kali Linux](https://img.shields.io/badge/VM-Kali_Linux-557C93?style=for-the-badge&logo=kali-linux&logoColor=white)](https://www.kali.org/)
 [![Windows 10](https://img.shields.io/badge/VM-Windows_10-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-> A comprehensive, production-grade Security Operations Center (SOC) laboratory portfolio featuring end-to-end deployments of **Wazuh 4.14.9** (Open-Source SIEM/XDR), **Splunk Enterprise 10.4.2** (Industry-Standard SIEM), and **Suricata 8.0.8** (High-Performance Network IDS). This repository consolidates host-based telemetry ingestion (Sysmon, Linux auditd, systemd-journald), network deep packet inspection (AF_PACKET, 53,500+ signatures), and cross-platform MITRE ATT&CK detection engineering into a unified defensive portfolio.
+> A comprehensive, production-grade Security Operations Center (SOC) laboratory portfolio featuring end-to-end deployments of **Wazuh 4.14.9** (Open-Source SIEM/XDR), **Splunk Enterprise 10.4.2** (Industry-Standard SIEM), **Suricata 8.0.8** (High-Performance Network IDS), and **Trivy 0.76.x** (Vulnerability Scanner). This repository consolidates host-based telemetry ingestion (Sysmon, Linux auditd, systemd-journald), network deep packet inspection (AF_PACKET, 53,500+ signatures), container and dependency vulnerability scanning (CVE detection, JSONL normalization), and cross-platform MITRE ATT&CK detection engineering into a unified defensive portfolio.
 
 ---
 
@@ -37,6 +38,13 @@ The Suricata lab pairs a multi-threaded **Suricata 8.0.8 NIDS** engine with the 
 
 ---
 
+### 4. Trivy Vulnerability Scanner + Wazuh SIEM Integration Workflow
+The Trivy lab integrates **Trivy 0.76.x Vulnerability Scanner** with the centralized **Wazuh 4.14.9 Manager** to establish automated vulnerability monitoring. Trivy scans container images (Kali Linux) and application dependencies (Windows 10) for HIGH and CRITICAL CVEs, normalizes findings into JSONL events (one event per CVE), and forwards them through existing Wazuh Agents for severity-based detection using custom rules (110401 HIGH / 110402 CRITICAL) and centralized threat hunting.
+
+[<img src="images/trivy_wazuh_workflow_diagram.png" alt="Trivy + Wazuh Vulnerability Monitoring Architecture" width="100%"/>](images/trivy_wazuh_workflow_diagram.png)
+
+---
+
 ## 📁 Repository Structure & Lab Directory
 
 ```text
@@ -44,6 +52,7 @@ SOC_Labs/
 ├── Wazuh_SOC_Lab/                      # Wazuh SIEM & XDR Monitoring Lab (Host Telemetry & FIM)
 ├── Splunk_SOC_Lab/                     # Splunk Enterprise Centralized SIEM Lab (SPL Analytics)
 ├── Wazuh_Suricata_Lab/                 # Suricata NIDS + Wazuh SIEM Integration Lab (Network IDS)
+├── Wazuh_Trivy_Lab/                    # Trivy Scanner + Wazuh SIEM Integration Lab (Vulnerability Monitoring)
 ├── Lab 3/                              # Upcoming
 └── Lab 4/                              # Upcoming
 ```
@@ -53,6 +62,7 @@ SOC_Labs/
 | **Wazuh SOC Home Lab** | Wazuh 4.14.9 · Ubuntu 24.04 LTS · OpenSearch | Full SIEM/XDR deployment, Sysmon, journald, DQL detection, XML rules, FIM | [📂 Wazuh_SOC_Lab](Wazuh_SOC_Lab/) |
 | **Splunk SOC Home Lab** | Splunk Enterprise 10.4.2 · Windows 11 · Universal Forwarders | Centralized log ingestion, index segregation, SPL detection engineering | [📂 Splunk_SOC_Lab](Splunk_SOC_Lab/) |
 | **Suricata NIDS + Wazuh Lab** | Suricata 8.0.8 · AF_PACKET · Wazuh 4.14.9 · EVE JSON | Network IDS, 53k+ ET Open signatures, deep packet inspection, SIEM correlation | [📂 Wazuh_Suricata_Lab](Wazuh_Suricata_Lab/) |
+| **Trivy + Wazuh Vulnerability Lab** | Trivy 0.76.x · Wazuh 4.14.9 · JSONL · Custom Rules 110400–110402 | Container image & dependency CVE scanning, JSON normalization, severity-based alerting | [📂 Wazuh_Trivy_Lab](Wazuh_Trivy_Lab/) |
 | **Lab 3** | Upcoming SOC Lab | *Coming Soon* | [📂 Lab 3](Lab%203/) |
 | **Lab 4** | Upcoming SOC Lab | *Coming Soon* | [📂 Lab 4](Lab%204/) |
 
@@ -60,16 +70,16 @@ SOC_Labs/
 
 ## ⚖️ Technology Comparison: Wazuh vs. Splunk vs. Suricata
 
-| Dimension | Wazuh 4.14.9 (Host SIEM/XDR) | Splunk Enterprise 10.4.2 (Log Analytics) | Suricata 8.0.8 (Network IDS) |
-| :--- | :--- | :--- | :--- |
-| **Primary Domain** | Endpoint Detection, HIDS, File Integrity Monitoring | Big Data Log Aggregation & Enterprise Analytics | Deep Packet Inspection & Network Intrusion Detection |
-| **Hosting Model** | Dedicated Ubuntu Server 24.04 LTS VM | Native Windows 11 Host Deployment | Co-located on Ubuntu Server (Promiscuous / AF_PACKET) |
-| **Ingestion Engine** | Wazuh Agent (TLS over TCP 1514) + AuthD (TCP 1515) | Splunk Universal Forwarder (TCP 9997) + Local Monitor | High-speed kernel ring buffer (`tpacket-v3: yes`) |
-| **Query Language** | DQL (Dashboard Query Language) / Lucene / OpenSearch | SPL (Search Processing Language) | EVE JSON filtering (jq) / Correlated Wazuh DQL |
-| **Detection Mechanism** | Regex Decoders + Hierarchical XML Rules (Levels 0-16) | SPL Correlation Searches & Scheduled Alerts | 53,500+ Emerging Threats & OISF Signatures |
-| **ATT&CK Coverage** | Native MITRE ATT&CK mapping in XML rules | Manual SPL field tagging or Splunk ES correlation | Network behavioral indicators (Command & Control, Scans) |
-| **Data Storage** | OpenSearch Distributed Search Cluster (Port 9200) | Splunk Proprietary Hot/Warm/Cold Buckets & TSIDX | Local structured EVE JSON forwarded into Wazuh Indexer |
-| **License Model** | 100% Free & Open-Source (Apache 2.0) | Enterprise Trial / Free 500 MB/day Developer License | 100% Free & Open-Source (GPLv2 / OISF) |
+| Dimension | Wazuh 4.14.9 (Host SIEM/XDR) | Splunk Enterprise 10.4.2 (Log Analytics) | Suricata 8.0.8 (Network IDS) | Trivy 0.76.x (Vulnerability Scanner) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Primary Domain** | Endpoint Detection, HIDS, File Integrity Monitoring | Big Data Log Aggregation & Enterprise Analytics | Deep Packet Inspection & Network Intrusion Detection | Container Image & Dependency Vulnerability Assessment |
+| **Hosting Model** | Dedicated Ubuntu Server 24.04 LTS VM | Native Windows 11 Host Deployment | Co-located on Ubuntu Server (Promiscuous / AF_PACKET) | Agent-side CLI on Kali Linux & Windows 10 endpoints |
+| **Ingestion Engine** | Wazuh Agent (TLS over TCP 1514) + AuthD (TCP 1515) | Splunk Universal Forwarder (TCP 9997) + Local Monitor | High-speed kernel ring buffer (`tpacket-v3: yes`) | JSON report → JSONL normalization → Wazuh Logcollector |
+| **Query Language** | DQL (Dashboard Query Language) / Lucene / OpenSearch | SPL (Search Processing Language) | EVE JSON filtering (jq) / Correlated Wazuh DQL | Wazuh DQL (`rule.id: 110401 OR rule.id: 110402`) |
+| **Detection Mechanism** | Regex Decoders + Hierarchical XML Rules (Levels 0-16) | SPL Correlation Searches & Scheduled Alerts | 53,500+ Emerging Threats & OISF Signatures | Custom XML rules (110400–110402) on JSON-decoded CVE events |
+| **ATT&CK Coverage** | Native MITRE ATT&CK mapping in XML rules | Manual SPL field tagging or Splunk ES correlation | Network behavioral indicators (Command & Control, Scans) | Vulnerability management (pre-exploitation identification) |
+| **Data Storage** | OpenSearch Distributed Search Cluster (Port 9200) | Splunk Proprietary Hot/Warm/Cold Buckets & TSIDX | Local structured EVE JSON forwarded into Wazuh Indexer | JSONL event logs indexed into Wazuh `wazuh-alerts-*` |
+| **License Model** | 100% Free & Open-Source (Apache 2.0) | Enterprise Trial / Free 500 MB/day Developer License | 100% Free & Open-Source (GPLv2 / OISF) | 100% Free & Open-Source (Apache 2.0) |
 
 ---
 
@@ -131,6 +141,16 @@ SOC_Labs/
   rule.groups: "suricata" AND rule.level >= 3
   ```
 
+### 6. Container & Dependency Vulnerability Detection (Trivy + Wazuh)
+- **Objective:** Detect HIGH and CRITICAL CVEs in container images and application dependency manifests across Linux and Windows endpoints.
+- **Kali Linux Telemetry:** Trivy scans `python:3.9-slim-bullseye` → JSON → JSONL (108 findings) → Wazuh Agent → Manager.
+- **Windows 10 Telemetry:** Trivy scans `requirements.txt` (Django 2.2.0) → JSON → JSONL → Wazuh Agent → Manager.
+- **Custom Wazuh Rules:** Rule `110401` (HIGH, Level 10) and Rule `110402` (CRITICAL, Level 12) in `trivy_rules.xml`.
+- **Wazuh Threat Hunting Query:**
+  ```text
+  rule.id: 110401 OR rule.id: 110402
+  ```
+
 ---
 
 ## 🚀 Quickstart Playbook
@@ -168,6 +188,21 @@ SOC_Labs/
    ```
 3. Hunt for network threats in the Wazuh Dashboard under **Threat Hunting → Events** (`rule.groups: "suricata"`).
 4. Full architecture details available in [Wazuh_Suricata_Lab/README.md](Wazuh_Suricata_Lab/README.md).
+
+### Running the Trivy + Wazuh Vulnerability Lab
+1. Run a Trivy scan on any endpoint:
+   ```bash
+   # Kali Linux — container image scan
+   trivy image --scanners vuln --severity HIGH,CRITICAL \
+     --format json --output ~/trivy-wazuh/reports/scan.json \
+     python:3.9-slim-bullseye
+   ```
+2. Normalize and forward findings:
+   ```bash
+   bash Wazuh_Trivy_Lab/scripts/normalize-kali.sh
+   ```
+3. Hunt for vulnerability alerts in the Wazuh Dashboard under **Threat Hunting → Events** (`rule.id: 110401 OR rule.id: 110402`).
+4. Full architecture and step-by-step guide available in [Wazuh_Trivy_Lab/README.md](Wazuh_Trivy_Lab/README.md).
 
 ---
 

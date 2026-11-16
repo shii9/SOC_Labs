@@ -1,0 +1,32 @@
+<!--
+  Trivy Vulnerability Scanner — Custom Wazuh Detection Rules
+  Deploy to: /var/ossec/etc/rules/trivy_rules.xml
+  Restart:   sudo systemctl restart wazuh-manager
+-->
+<group name="trivy,vulnerability,">
+
+  <!-- Base rule: Identify any Trivy vulnerability event -->
+  <rule id="110400" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="trivy">\.+</field>
+    <description>Trivy: Vulnerability finding detected.</description>
+    <group>trivy,</group>
+  </rule>
+
+  <!-- HIGH severity vulnerability -->
+  <rule id="110401" level="10">
+    <if_sid>110400</if_sid>
+    <field name="severity">HIGH</field>
+    <description>Trivy: HIGH severity vulnerability — $(vulnerability_id) in $(package) $(installed_version).</description>
+    <group>trivy,vulnerability_high,</group>
+  </rule>
+
+  <!-- CRITICAL severity vulnerability -->
+  <rule id="110402" level="12">
+    <if_sid>110400</if_sid>
+    <field name="severity">CRITICAL</field>
+    <description>Trivy: CRITICAL severity vulnerability — $(vulnerability_id) in $(package) $(installed_version).</description>
+    <group>trivy,vulnerability_critical,</group>
+  </rule>
+
+</group>
