@@ -1,0 +1,21 @@
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+
+# Telemetry, PCAP, and log files
+*.log
+*.pcap
+*.pcapng
+eve.json
+alerts.json
+archives.json
+
+# Credentials, keys, and temporary files
+*.key
+*.pem
+*.tmp
+*.bak
