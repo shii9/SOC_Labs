@@ -257,6 +257,28 @@ rule.groups: "syscheck" AND syscheck.path: "/etc/shadow"
 
 ---
 
+## 🚀 Quickstart Playbook
+
+### Running the Wazuh Lab
+1. Power on the **Ubuntu Server 24.04 LTS** VM in VMware Workstation.
+2. Verify services:
+   ```bash
+   ssh <UBUNTU_USER>@192.168.x.x
+   sudo systemctl is-active wazuh-manager wazuh-indexer wazuh-dashboard filebeat
+   ```
+3. Open `https://192.168.x.x` in your Windows 11 browser.
+4. Full deployment playbook available in [`docs/deployment.md`](docs/deployment.md).
+
+---
+
+## 🔒 Security & Privacy Standards
+
+- **Anonymized IP Addressing**: All IP addresses across configs, guides, and documentation are anonymized using `192.168.x.x` or RFC placeholders.
+- **Zero Exposed Secrets**: No real passwords, agent keys, certificates, or personal authentication tokens are committed.
+- **Network Isolation**: All virtual machines operate within private VMware NAT/Host-Only subnets with no inbound exposure to public networks.
+
+---
+
 ## 📚 Documentation Navigation & Companion Microsite
 
 A standalone visual microsite is provided at [`site/index.html`](site/index.html). Open that file in any web browser to explore interactive topologies, data pipelines, and evidence galleries without spinning up a web server.

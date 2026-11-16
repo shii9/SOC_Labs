@@ -52,9 +52,7 @@ SOC_Labs/
 ├── Wazuh_SOC_Lab/                      # Wazuh SIEM & XDR Monitoring Lab (Host Telemetry & FIM)
 ├── Splunk_SOC_Lab/                     # Splunk Enterprise Centralized SIEM Lab (SPL Analytics)
 ├── Wazuh_Suricata_Lab/                 # Suricata NIDS + Wazuh SIEM Integration Lab (Network IDS)
-├── Wazuh_Trivy_Lab/                    # Trivy Scanner + Wazuh SIEM Integration Lab (Vulnerability Monitoring)
-├── Lab 3/                              # Upcoming
-└── Lab 4/                              # Upcoming
+└── Wazuh_Trivy_Lab/                    # Trivy Scanner + Wazuh SIEM Integration Lab (Vulnerability Monitoring)
 ```
 
 | Lab Environment | Primary Technology | Scope & Status | Directory Link |
@@ -63,8 +61,6 @@ SOC_Labs/
 | **Splunk SOC Home Lab** | Splunk Enterprise 10.4.2 · Windows 11 · Universal Forwarders | Centralized log ingestion, index segregation, SPL detection engineering | [📂 Splunk_SOC_Lab](Splunk_SOC_Lab/) |
 | **Suricata NIDS + Wazuh Lab** | Suricata 8.0.8 · AF_PACKET · Wazuh 4.14.9 · EVE JSON | Network IDS, 53k+ ET Open signatures, deep packet inspection, SIEM correlation | [📂 Wazuh_Suricata_Lab](Wazuh_Suricata_Lab/) |
 | **Trivy + Wazuh Vulnerability Lab** | Trivy 0.76.x · Wazuh 4.14.9 · JSONL · Custom Rules 110400–110402 | Container image & dependency CVE scanning, JSON normalization, severity-based alerting | [📂 Wazuh_Trivy_Lab](Wazuh_Trivy_Lab/) |
-| **Lab 3** | Upcoming SOC Lab | *Coming Soon* | [📂 Lab 3](Lab%203/) |
-| **Lab 4** | Upcoming SOC Lab | *Coming Soon* | [📂 Lab 4](Lab%204/) |
 
 ---
 
@@ -150,67 +146,6 @@ SOC_Labs/
   ```text
   rule.id: 110401 OR rule.id: 110402
   ```
-
----
-
-## 🚀 Quickstart Playbook
-
-### Running the Wazuh Lab
-1. Power on the **Ubuntu Server 24.04 LTS** VM in VMware Workstation.
-2. Verify services:
-   ```bash
-   ssh <UBUNTU_USER>@192.168.x.x
-   sudo systemctl is-active wazuh-manager wazuh-indexer wazuh-dashboard filebeat
-   ```
-3. Open `https://192.168.x.x` in your Windows 11 browser.
-4. Full instructions available in [Wazuh_SOC_Lab/docs/deployment.md](Wazuh_SOC_Lab/docs/deployment.md).
-
-### Running the Splunk Lab
-1. Start the Splunk Enterprise service on Windows 11:
-   ```powershell
-   Get-Service Splunkd | Start-Service
-   ```
-2. Verify port `9997` listening:
-   ```powershell
-   Get-NetTCPConnection -LocalPort 9997 -State Listen
-   ```
-3. Open `http://localhost:8000` in your Windows 11 browser.
-4. Full instructions available in [Splunk_SOC_Lab/README.md](Splunk_SOC_Lab/README.md).
-
-### Running the Suricata + Wazuh NIDS Lab
-1. Start and verify the Suricata engine alongside Wazuh:
-   ```bash
-   sudo systemctl status suricata wazuh-manager filebeat --no-pager
-   ```
-2. Stream live Suricata alerts:
-   ```bash
-   sudo tail -f /var/log/suricata/eve.json | jq 'select(.event_type == "alert")'
-   ```
-3. Hunt for network threats in the Wazuh Dashboard under **Threat Hunting → Events** (`rule.groups: "suricata"`).
-4. Full architecture details available in [Wazuh_Suricata_Lab/README.md](Wazuh_Suricata_Lab/README.md).
-
-### Running the Trivy + Wazuh Vulnerability Lab
-1. Run a Trivy scan on any endpoint:
-   ```bash
-   # Kali Linux — container image scan
-   trivy image --scanners vuln --severity HIGH,CRITICAL \
-     --format json --output ~/trivy-wazuh/reports/scan.json \
-     python:3.9-slim-bullseye
-   ```
-2. Normalize and forward findings:
-   ```bash
-   bash Wazuh_Trivy_Lab/scripts/normalize-kali.sh
-   ```
-3. Hunt for vulnerability alerts in the Wazuh Dashboard under **Threat Hunting → Events** (`rule.id: 110401 OR rule.id: 110402`).
-4. Full architecture and step-by-step guide available in [Wazuh_Trivy_Lab/README.md](Wazuh_Trivy_Lab/README.md).
-
----
-
-## 🔒 Security & Privacy Standards
-
-- **Anonymized IP Addressing**: All IP addresses across configs, guides, and documentation are anonymized using `192.168.x.x` or RFC placeholders.
-- **Zero Exposed Secrets**: No real passwords, agent keys, certificates, or personal authentication tokens are committed.
-- **Network Isolation**: All virtual machines operate within private VMware NAT/Host-Only subnets with no inbound exposure to public networks.
 
 ---
 
